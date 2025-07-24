@@ -3,7 +3,7 @@
 
 Turn any image into insightful text using Google Gemini 1.5 Flash and Streamlit. Just upload an image and let AI describe it intelligently.
 
-![App Screenshot](https://via.placeholder.com/800x400.png?text=Image+to+Text+AI+Preview)
+
 
 ---
 
