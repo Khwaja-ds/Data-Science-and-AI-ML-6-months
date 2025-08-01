@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Roadmap Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="main-title">
+                    <i class="fas fa-road"></i>
+                    Career Roadmap Generator
+                </h1>
+                <p class="subtitle">Transform your career aspirations into actionable steps</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-card">
+                <h2>Generate Your Career Roadmap</h2>
+                <p class="form-description">Tell us about your career field and goals, and we'll create a personalized roadmap for you.</p>
+                
+                <form id="roadmapForm">
+                    <div class="form-group">
+                        <label for="careerField">Career Field</label>
+                        <div class="select-wrapper">
+                            <select id="careerField" name="careerField" required>
+                                <option value="">Select your career field</option>
+                                <option value="AI/Artificial Intelligence">AI/Artificial Intelligence</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="Software Engineering">Software Engineering</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Design">Design</option>
+                                <option value="Product Management">Product Management</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Consulting">Consulting</option>
+                                <option value="Entrepreneurship">Entrepreneurship</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="careerGoal">Career Goal</label>
+                        <textarea 
+                            id="careerGoal" 
+                            name="careerGoal" 
+                            placeholder="Describe your specific career goal (e.g., 'Become a Senior AI Engineer at a tech company', 'Start my own digital marketing agency')" 
+                            required
+                            rows="4"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="generate-btn" id="generateBtn">
+                        <span class="btn-text">
+                            <i class="fas fa-magic"></i>
+                            Generate Roadmap
+                        </span>
+                        <span class="loading-spinner" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Generating...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="results-card">
+                <div class="results-header">
+                    <h2>Your Career Roadmap</h2>
+                    <div class="results-actions">
+                        <button class="copy-btn" id="copyBtn">
+                            <i class="fas fa-copy"></i>
+                            Copy to Clipboard
+                        </button>
+                        <button class="new-roadmap-btn" id="newRoadmapBtn">
+                            <i class="fas fa-plus"></i>
+                            Generate New Roadmap
+                        </button>
+                    </div>
+                </div>
+                <div class="roadmap-content">
+                    <div class="roadmap-info">
+                        <div class="info-item">
+                            <strong>Field:</strong> <span id="resultField"></span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Goal:</strong> <span id="resultGoal"></span>
+                        </div>
+                    </div>
+                    <div class="roadmap-text" id="roadmapText"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
